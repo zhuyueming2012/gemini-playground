@@ -166,10 +166,10 @@ export class MultimodalLiveClient extends EventEmitter {
                 this.emit('interrupted');
                 return;
             }
-            if (serverContent.turnComplete) {
+            /*if (serverContent.turnComplete) {
                 this.log('server.send', 'turnComplete');
                 this.emit('turncomplete');
-            }
+            }*/
             if (serverContent.modelTurn) {
                 let parts = serverContent.modelTurn.parts;
                 const audioParts = parts.filter((p) => p.inlineData && p.inlineData.mimeType.startsWith('audio/pcm'));
