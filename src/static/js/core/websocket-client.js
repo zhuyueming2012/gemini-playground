@@ -34,9 +34,9 @@ export class MultimodalLiveClient extends EventEmitter {
      * @param {string} type - The type of the log message (e.g., 'server.send', 'client.close').
      * @param {string|Object} message - The message to log.
      */
-    log(type, message) {
+    /*log(type, message) {
         this.emit('log', { date: new Date(), type, message });
-    }
+    }*/
 
     /**
      * Connects to the WebSocket server with the given configuration.
