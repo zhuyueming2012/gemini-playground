@@ -190,8 +190,8 @@ export class MultimodalLiveClient extends EventEmitter {
 
                 parts = otherParts;
                 const content = { modelTurn: { parts } };
-                this.emit('content', content);
-                this.log(`server.content`, response);
+                //this.emit('content', content);
+                //this.log(`server.content`, response);
             }
         } else {
             console.log('Received unmatched message', response);
