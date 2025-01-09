@@ -166,10 +166,10 @@ export class MultimodalLiveClient extends EventEmitter {
                 this.emit('interrupted');
                 return;
             }
-            /*if (serverContent.turnComplete) {
+            if (serverContent.turnComplete) {
                 this.log('server.send', 'turnComplete');
                 this.emit('turncomplete');
-            }*/
+            }
             if (serverContent.modelTurn) {
                 let parts = serverContent.modelTurn.parts;
                 const audioParts = parts.filter((p) => p.inlineData && p.inlineData.mimeType.startsWith('audio/pcm'));
@@ -190,7 +190,7 @@ export class MultimodalLiveClient extends EventEmitter {
 
                 parts = otherParts;
                 const content = { modelTurn: { parts } };
-                //this.emit('content', content);
+                this.emit('content', content);
                 //this.log(`server.content`, response);
             }
         } else {
@@ -257,7 +257,7 @@ export class MultimodalLiveClient extends EventEmitter {
         const content = { role: 'user', parts: formattedParts };
         const clientContentRequest = { clientContent: { turns: [content], turnComplete } };
         this._sendDirect(clientContentRequest);
-        this.log(`client.send`, clientContentRequest);
+        //this.log(`client.send`, clientContentRequest);
     }
 
     /**
