@@ -149,11 +149,11 @@ export class MultimodalLiveClient extends EventEmitter {
             await this.handleToolCall(response.toolCall);
             return;
         }
-        /*if (response.toolCallCancellation) {
+        if (response.toolCallCancellation) {
             this.log('receive.toolCallCancellation', response);
             this.emit('toolcallcancellation', response.toolCallCancellation);
             return;
-        }*/
+        }
         if (response.setupComplete) {
             this.log('server.send', 'setupComplete');
             this.emit('setupcomplete');
@@ -166,10 +166,10 @@ export class MultimodalLiveClient extends EventEmitter {
                 this.emit('interrupted');
                 return;
             }
-            if (serverContent.turnComplete) {
+            /*if (serverContent.turnComplete) {
                 this.log('server.send', 'turnComplete');
                 this.emit('turncomplete');
-            }
+            }*/
             if (serverContent.modelTurn) {
                 let parts = serverContent.modelTurn.parts;
                 const audioParts = parts.filter((p) => p.inlineData && p.inlineData.mimeType.startsWith('audio/pcm'));
