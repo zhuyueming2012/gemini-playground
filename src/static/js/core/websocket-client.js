@@ -170,7 +170,7 @@ export class MultimodalLiveClient extends EventEmitter {
                 this.log('server.send', 'turnComplete');
                 this.emit('turncomplete');
             }
-            if (serverContent.modelTurn) {
+            /*if (serverContent.modelTurn) {
                 let parts = serverContent.modelTurn.parts;
                 const audioParts = parts.filter((p) => p.inlineData && p.inlineData.mimeType.startsWith('audio/pcm'));
                 const base64s = audioParts.map((p) => p.inlineData?.data);
@@ -192,7 +192,7 @@ export class MultimodalLiveClient extends EventEmitter {
                 const content = { modelTurn: { parts } };
                 this.emit('content', content);
                 this.log(`server.content`, response);
-            }
+            }*/
         } else {
             console.log('Received unmatched message', response);
         }
